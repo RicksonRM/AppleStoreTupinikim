@@ -1,0 +1,39 @@
+﻿@model Produtos
+
+@{
+    ViewData["title"] = "Cadastro de Produto";
+}
+<div class="text-center">
+    <h1 class="display-4">Cadastro de Produtos</h1>
+    <br />
+    <form asp-action="Criar">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="Codigo" class="control-label">Digite o código do produto</label>
+            <input asp-for="Codigo" type="number" class="form-control" placeholder="Digite o código do produto a ser cadastrado...">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Nome" class="control-label">Digite o nome do produto</label>
+            <input asp-for="Nome" type="text" class="form-control" placeholder="Digite o nome do produto a ser cadastrado...">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Preco" class="control-label">Digite o valor do produto</label>
+            <input asp-for="Preco" type="number" class="form-control" placeholder="Digite o valor do produto a ser cadastrado...">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Estoque" class="control-label">Estoque inicial</label>
+            <input asp-for="Estoque" type="number" class="form-control" placeholder="Digite o estoque inicial do produto a ser cadastrado...">
+        </div>
+        <button type="submit" value="Criar" class="btn btn-primary">Salvar</button>
+    </form>
+    <br />
+    <a class="btn btn-secondary" asp-controller="Produto" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

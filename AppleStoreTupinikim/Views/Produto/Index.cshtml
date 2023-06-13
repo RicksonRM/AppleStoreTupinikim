@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<div class=" text-center">
+    <h1 class="display-4">Listagem de Produtos</h1>
+    <br />
+    <div class="d-grid gap-2 d-md-flex">
+        <a class="btn btn-primary" role="button" asp-controller="Produto" asp-action="Criar">Inserir Produto</a>
+    </div>
+    <p>
+        Sistema de Gestão de Produtos
+    </p>
+
+    @model IEnumerable<Produtos>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estoque)
+                </td>
+                <td>
+                    <a class="btn btn-primary" role="button" asp-controller="Produto" asp-action="Editar">Editar</a>
+                    <a class="btn btn-primary" role="button" asp-controller="Produto" asp-action="Excluir">Excluir</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
